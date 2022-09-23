@@ -14,7 +14,7 @@ int main() {
   string date;
   int TestResult;
   int count =0;
-  int cumulative_cases= 0;
+  double cumulative_cases= 0;
   
   //declare stream varriables
   ifstream inFile; //needed to access the file we want to load
@@ -23,10 +23,33 @@ int main() {
 
   //open the input file
   inFile.open("TestResultsData.dat");
+   
+
+  //open the output file
+  outFile.open("AnaluedData.txt");
+/****
+    //open the input file
+  inFile.open("TestResultsData.dat");
+
+  //open the output file
+  outFile.open("AnaluedData.txt");
 
   //read in the date -first line of file
   inFile >> date;
   cout << date <<endl;
+ 
+  ****/
+    //read in the date -first line of file
+  inFile >> date;
+  cout << date <<endl;
+   //add date to the output file as the first line
+  outFile<< date <<endl;
+
+  //clost the output file
+  outFile.close();
+
+
+  
 
   //read in the 2 pieces of info on the secound line
   inFile >>firstName;
@@ -44,6 +67,14 @@ int main() {
       inFile >> firstName;
       inFile >> TestResult;
     }
+  outFile<< "Number of persons tested:"<< count <<endl;
+  outFile << "Total number Cases:" <<cumulative_cases << endl;
+  
+
+  inFile.close();
+
+
+  
   
   
 }
