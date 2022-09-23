@@ -45,8 +45,7 @@ int main() {
    //add date to the output file as the first line
   outFile<< date <<endl;
 
-  //clost the output file
-  outFile.close();
+  
 
 
   
@@ -69,9 +68,18 @@ int main() {
     }
   outFile<< "Number of persons tested:"<< count <<endl;
   outFile << "Total number Cases:" <<cumulative_cases << endl;
+
+  //report prevalence as % with 2 deciamls
+  outFile << fixed << showpoint << setprecision(2);
+  outFile << "The prevalence is ";
+  outFile << ((static_cast<double>(cumulative_cases))/count)*100;
+  outFile << " %" <<endl;
+  
   
 
   inFile.close();
+  //clost the output file
+  outFile.close();
 
 
   
